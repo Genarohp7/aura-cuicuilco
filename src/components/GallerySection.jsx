@@ -1,38 +1,21 @@
 import { useMemo, useState } from "react";
-import { RowsPhotoAlbum } from "react-photo-album";
 import Lightbox from "yet-another-react-lightbox";
 import Captions from "yet-another-react-lightbox/plugins/captions";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 
-import "react-photo-album/rows.css";
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/captions.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 
 import { galleryPhotos } from "../data/galleryPhotos";
 
-const placeholderCards = [
-  {
-    className: "md:col-span-2 min-h-[320px]",
-    text: "Espacio listo para recibir fotos reales en distintos formatos.",
-  },
-  {
-    className: "min-h-[320px]",
-    text: "Aquí lucirán tanto fotos verticales como horizontales.",
-  },
-  {
-    className: "min-h-[320px]",
-    text: "La composición final se verá limpia, elegante y actual.",
-  },
-  {
-    className: "md:col-span-2 min-h-[220px]",
-    text: "La galería estará pensada para vender el lugar desde la primera vista.",
-  },
-  {
-    className: "md:col-span-2 min-h-[220px]",
-    text: "Sin recortes absurdos ni acomodos improvisados.",
-  },
+const previewLayout = [
+  "col-span-12 min-h-[380px] sm:min-h-[430px] lg:col-span-7 lg:row-span-2 lg:min-h-[620px]",
+  "col-span-12 min-h-[230px] sm:min-h-[260px] lg:col-span-5 lg:min-h-[300px]",
+  "hidden sm:block col-span-12 min-h-[230px] sm:min-h-[260px] lg:col-span-5 lg:min-h-[300px]",
+  "hidden lg:block lg:col-span-3 lg:min-h-[220px]",
+  "hidden lg:block lg:col-span-4 lg:min-h-[220px]",
 ];
 
 function GallerySection() {
@@ -51,72 +34,115 @@ function GallerySection() {
     []
   );
 
-  const hasPhotos = galleryPhotos.length > 0;
+  const previewPhotos = galleryPhotos.slice(0, 5);
+  const totalPhotos = galleryPhotos.length;
+  const extraPhotos = Math.max(totalPhotos - previewPhotos.length, 0);
+  const hasPhotos = totalPhotos > 0;
 
   return (
-    <section id="espacio" className="mx-auto w-full max-w-7xl px-6 py-20 md:px-10">
-      <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+    <section
+      id="espacio"
+      className="mx-auto w-full max-w-7xl px-6 py-20 md:px-10"
+    >
+      <div className="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
         <div className="max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.38em] text-[var(--gold-dark)]">
             Galería del espacio
           </p>
 
           <h2 className="mt-4 text-3xl font-light tracking-[0.06em] md:text-5xl">
-            Una presentación visual limpia, elegante y pensada para vender el lugar.
+            Una selección visual corta, elegante y pensada para lucir el lugar sin
+            saturar la página.
           </h2>
         </div>
 
-        <p className="max-w-xl text-sm leading-7 text-[var(--muted)] md:text-base">
-          Aquí vamos a lucir tanto fotos horizontales como verticales sin forzarlas a
-          formatos torcidos. La idea es que el espacio se vea cuidado, actual y con
-          mucha mejor presencia.
-        </p>
+        <div className="max-w-xl">
+          <p className="text-sm leading-7 text-[var(--muted)] md:text-base">
+            Mostramos solo una vista previa curada en la landing. El resto de las
+            fotos queda disponible dentro de una galería completa, para que la
+            experiencia siga sintiéndose premium y ligera.
+          </p>
+
+          {hasPhotos ? (
+            <button
+              type="button"
+              onClick={() => setActiveIndex(0)}
+              className="mt-5 inline-flex items-center justify-center rounded-full border border-[var(--gold-dark)] bg-[var(--gold)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f2a20] transition duration-300 hover:-translate-y-0.5"
+            >
+              Ver galería completa
+            </button>
+          ) : null}
+        </div>
       </div>
 
       {hasPhotos ? (
         <>
-          <div className="rounded-[2rem] border border-[var(--line)] bg-white/50 p-4 backdrop-blur md:p-5">
-            <div className="aura-gallery">
-              <RowsPhotoAlbum
-                photos={galleryPhotos}
-                targetRowHeight={320}
-                spacing={16}
-                breakpoints={[480, 768, 1024, 1280]}
-                sizes={{
-                  size: "1168px",
-                  sizes: [
-                    {
-                      viewport: "(max-width: 1280px)",
-                      size: "calc(100vw - 80px)",
-                    },
-                    {
-                      viewport: "(max-width: 768px)",
-                      size: "calc(100vw - 48px)",
-                    },
-                  ],
-                }}
-                onClick={({ index }) => setActiveIndex(index)}
-              />
-            </div>
+          <div className="grid gap-4 lg:grid-cols-12 lg:auto-rows-[1fr]">
+            {previewPhotos.map((photo, index) => (
+              <button
+                key={photo.src}
+                type="button"
+                onClick={() => setActiveIndex(index)}
+                className={`group relative overflow-hidden rounded-[1.75rem] border border-[var(--line)] bg-white/60 text-left shadow-[0_18px_50px_rgba(69,56,26,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(69,56,26,0.12)] ${previewLayout[index]}`}
+              >
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
+                  loading={index === 0 ? "eager" : "lazy"}
+                />
+
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/72 via-black/18 to-transparent" />
+
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 p-5 md:p-6">
+                  <p className="text-[10px] uppercase tracking-[0.35em] text-white/72">
+                    Aura Cuicuilco
+                  </p>
+
+                  <div className="mt-3 flex items-end justify-between gap-4">
+                    <div className="max-w-[80%]">
+                      <h3 className="text-lg font-light tracking-[0.05em] text-white md:text-xl">
+                        {photo.title}
+                      </h3>
+                      <p className="mt-2 hidden text-sm leading-6 text-white/82 md:block">
+                        {photo.description}
+                      </p>
+                    </div>
+
+                    <span className="inline-flex h-11 min-w-11 items-center justify-center rounded-full border border-white/22 bg-white/10 px-3 text-[10px] uppercase tracking-[0.24em] text-white/85 backdrop-blur">
+                      Ver
+                    </span>
+                  </div>
+                </div>
+
+                {index === previewPhotos.length - 1 && extraPhotos > 0 ? (
+                  <div className="absolute right-4 top-4 rounded-full border border-white/20 bg-black/38 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-white backdrop-blur">
+                    +{extraPhotos} más
+                  </div>
+                ) : null}
+              </button>
+            ))}
           </div>
 
-          <div className="mt-5 grid gap-4 md:grid-cols-3">
-            {galleryPhotos.slice(0, 3).map((photo) => (
-              <article
-                key={photo.src}
-                className="rounded-[1.5rem] border border-[var(--line)] bg-[var(--surface)]/70 p-5"
-              >
-                <p className="text-[10px] uppercase tracking-[0.35em] text-[var(--gold-dark)]">
-                  Aura Cuicuilco
-                </p>
-                <h3 className="mt-3 text-lg font-light tracking-[0.05em]">
-                  {photo.title}
-                </h3>
-                <p className="mt-2 text-sm leading-7 text-[var(--muted)]">
-                  {photo.description}
-                </p>
-              </article>
-            ))}
+          <div className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-[1.5rem] border border-[var(--line)] bg-white/55 px-5 py-5 backdrop-blur md:px-6">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[var(--gold-dark)]">
+                Vista previa curada
+              </p>
+              <p className="mt-2 text-sm leading-7 text-[var(--muted)]">
+                En la landing se muestran solo las imágenes necesarias para mantener
+                una experiencia visual limpia. La galería completa conserva todas las
+                fotos del espacio.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setActiveIndex(0)}
+              className="inline-flex items-center justify-center rounded-full border border-[var(--line)] px-5 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--foreground)] transition duration-300 hover:border-[var(--gold-dark)]"
+            >
+              Ver todas las fotos
+            </button>
           </div>
 
           <Lightbox
@@ -156,41 +182,11 @@ function GallerySection() {
           />
         </>
       ) : (
-        <div className="rounded-[2rem] border border-[var(--line)] bg-white/55 p-5 backdrop-blur md:p-6">
-          <div className="grid gap-4 md:grid-cols-4">
-            {placeholderCards.map((card, index) => (
-              <div
-                key={index}
-                className={`overflow-hidden rounded-[1.75rem] border border-[var(--line)] bg-[linear-gradient(145deg,rgba(255,255,255,0.82),rgba(212,175,55,0.18))] ${card.className}`}
-              >
-                <div className="flex h-full w-full items-end bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.6),transparent_56%)] p-5">
-                  <div>
-                    <p className="text-[10px] uppercase tracking-[0.35em] text-[var(--gold-dark)]">
-                      Aura Cuicuilco
-                    </p>
-                    <p className="mt-2 max-w-sm text-sm leading-6 text-[var(--foreground)]">
-                      {card.text}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-5 rounded-[1.5rem] border border-[var(--line)] bg-[var(--surface)]/80 p-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[var(--gold-dark)]">
-              Siguiente conexión
-            </p>
-
-            <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
-              En cuanto pongamos las fotos reales, esta sección quedará funcionando
-              como galería premium con vista ampliada, captions y thumbnails.
-            </p>
-
-            <p className="mt-3 text-xs uppercase tracking-[0.22em] text-[var(--foreground)]">
-              Ruta sugerida: public/images/gallery/
-            </p>
-          </div>
+        <div className="rounded-[2rem] border border-[var(--line)] bg-white/55 p-6 backdrop-blur">
+          <p className="text-sm leading-7 text-[var(--muted)]">
+            Aquí irá una vista previa editorial de la galería. Cuando haya imágenes,
+            mostraremos solo una selección breve y el resto quedará dentro del modal.
+          </p>
         </div>
       )}
     </section>
