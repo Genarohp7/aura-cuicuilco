@@ -96,31 +96,27 @@ function GallerySection() {
                   ],
                 }}
                 onClick={({ index }) => setActiveIndex(index)}
-                componentsProps={{
-                  container: {
-                    className: "select-none",
-                  },
-                }}
-                render={{
-                  extras: (_, { photo }) => (
-                    <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-black/70 via-black/20 to-transparent p-4 text-white">
-                      <div>
-                        <p className="text-[10px] uppercase tracking-[0.35em] text-white/70">
-                          Aura Cuicuilco
-                        </p>
-                        <p className="mt-1 text-sm tracking-[0.06em]">
-                          {photo.title || photo.alt}
-                        </p>
-                      </div>
-
-                      <span className="inline-flex h-10 min-w-10 items-center justify-center rounded-full border border-white/25 bg-white/10 px-3 text-[10px] uppercase tracking-[0.24em] text-white/80 backdrop-blur">
-                        Ver
-                      </span>
-                    </div>
-                  ),
-                }}
               />
             </div>
+          </div>
+
+          <div className="mt-5 grid gap-4 md:grid-cols-3">
+            {galleryPhotos.slice(0, 3).map((photo) => (
+              <article
+                key={photo.src}
+                className="rounded-[1.5rem] border border-[var(--line)] bg-[var(--surface)]/70 p-5"
+              >
+                <p className="text-[10px] uppercase tracking-[0.35em] text-[var(--gold-dark)]">
+                  Aura Cuicuilco
+                </p>
+                <h3 className="mt-3 text-lg font-light tracking-[0.05em]">
+                  {photo.title}
+                </h3>
+                <p className="mt-2 text-sm leading-7 text-[var(--muted)]">
+                  {photo.description}
+                </p>
+              </article>
+            ))}
           </div>
 
           <Lightbox
@@ -187,9 +183,8 @@ function GallerySection() {
             </p>
 
             <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
-              En cuanto pongamos las 7 fotos reales, esta sección quedará funcionando
-              como galería premium con vista ampliada, captions y thumbnails. Aquí no
-              habrá recortes absurdos ni acomodos improvisados.
+              En cuanto pongamos las fotos reales, esta sección quedará funcionando
+              como galería premium con vista ampliada, captions y thumbnails.
             </p>
 
             <p className="mt-3 text-xs uppercase tracking-[0.22em] text-[var(--foreground)]">

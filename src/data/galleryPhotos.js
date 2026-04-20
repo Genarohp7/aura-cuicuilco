@@ -1,81 +1,76 @@
-export const galleryPhotos = [];
-
-/*
-  Cuando ya tengas las fotos reales, copia objetos de esta guía a galleryPhotos
-  y ajusta ancho/alto según cada imagen.
-
-  Ruta sugerida para guardar imágenes:
-  public/images/gallery/
-
-  Ejemplo:
-  export const galleryPhotos = [
-    {
-      src: "/images/gallery/aura-01.jpg",
-      width: 1600,
-      height: 1067,
-      alt: "Vista general del jardín en Aura Cuicuilco",
-      title: "Jardín principal",
-      description: "Un entorno abierto, elegante y listo para celebrar.",
-    },
-    ...
-  ];
-*/
-
-export const galleryPhotoGuide = [
+export const galleryPhotos = [
   {
-    src: "/images/gallery/aura-01.jpg",
-    width: 1600,
-    height: 1067,
-    alt: "Vista general del jardín en Aura Cuicuilco",
-    title: "Jardín principal",
-    description: "Un entorno abierto, elegante y listo para celebrar.",
+    src: "/images/gallery/aura-01.webp",
+    width: 1365,
+    height: 2048,
+    alt: "Vista interior del acceso en Aura Cuicuilco con domo central y jardín decorativo",
+    title: "Acceso interior con carácter",
+    description:
+      "Una entrada con personalidad, luz natural y una atmósfera que se siente cuidada desde el primer momento.",
   },
   {
-    src: "/images/gallery/aura-02.jpg",
-    width: 1200,
-    height: 1600,
-    alt: "Montaje vertical de evento en Aura Cuicuilco",
-    title: "Montajes con presencia",
-    description: "Espacios que lucen bien de día, de tarde y de noche.",
+    src: "/images/gallery/aura-02.webp",
+    width: 2048,
+    height: 1365,
+    alt: "Acceso exterior arbolado de Aura Cuicuilco",
+    title: "Llegada rodeada de naturaleza",
+    description:
+      "El entorno verde y la entrada arbolada aportan una sensación de privacidad y calma desde la llegada.",
   },
   {
-    src: "/images/gallery/aura-03.jpg",
-    width: 1600,
-    height: 1000,
-    alt: "Salón para eventos en Aura Cuicuilco",
-    title: "Salón interior",
-    description: "Un espacio versátil para celebraciones bien presentadas.",
+    src: "/images/gallery/aura-03.webp",
+    width: 1365,
+    height: 2048,
+    alt: "Sendero rodeado de vegetación en Aura Cuicuilco",
+    title: "Senderos con esencia natural",
+    description:
+      "Recorridos entre vegetación que suman encanto y hacen que el espacio se sienta más especial.",
   },
   {
-    src: "/images/gallery/aura-04.jpg",
-    width: 1500,
-    height: 1000,
-    alt: "Detalle de ambientación en Aura Cuicuilco",
-    title: "Detalles que elevan",
-    description: "Una atmósfera cuidada que hace que todo se sienta especial.",
+    src: "/images/gallery/aura-04.webp",
+    width: 1365,
+    height: 2048,
+    alt: "Camino exterior rodeado de jardín en Aura Cuicuilco",
+    title: "Recorridos que invitan a quedarse",
+    description:
+      "Cada trayecto dentro del lugar aporta una experiencia visual agradable y bien integrada con el jardín.",
   },
   {
-    src: "/images/gallery/aura-05.jpg",
-    width: 1200,
-    height: 1500,
-    alt: "Vista del jardín con montaje de mesa en Aura Cuicuilco",
-    title: "Jardín con montaje",
-    description: "Ideal para eventos íntimos con una imagen elegante.",
+    src: "/images/gallery/aura-05.webp",
+    width: 1365,
+    height: 2048,
+    alt: "Terraza exterior rodeada de vegetación en Aura Cuicuilco",
+    title: "Terraza y áreas de convivencia",
+    description:
+      "Espacios que combinan comodidad, vegetación y una imagen ideal para reuniones y celebraciones.",
   },
   {
-    src: "/images/gallery/aura-06.jpg",
-    width: 1600,
-    height: 900,
-    alt: "Vista panorámica del espacio para eventos",
-    title: "Espacio para celebrar",
-    description: "Una experiencia visual agradable desde la llegada.",
+    src: "/images/gallery/aura-06.webp",
+    width: 2048,
+    height: 1365,
+    alt: "Montaje de evento en el jardín de Aura Cuicuilco",
+    title: "Montajes que lucen de verdad",
+    description:
+      "El jardín y la zona de convivencia permiten celebraciones con una presentación elegante y memorable.",
   },
   {
-    src: "/images/gallery/aura-07.jpg",
-    width: 1400,
-    height: 1400,
-    alt: "Detalle decorativo en Aura Cuicuilco",
-    title: "Ambiente con estilo",
-    description: "Un lugar pensado para crear momentos memorables.",
+    src: "/images/gallery/aura-07.webp",
+    width: 2048,
+    height: 1365,
+    alt: "Área de jardín con camino de ladrillo en Aura Cuicuilco",
+    title: "Jardín con amplitud y armonía",
+    description:
+      "Una zona verde que aporta frescura, amplitud visual y un ambiente ideal para eventos especiales.",
+  },
+  {
+    src: "/images/gallery/aura-08.webp",
+    width: 2048,
+    height: 1365,
+    alt: "Vista amplia del jardín principal en Aura Cuicuilco con invitados",
+    title: "Un espacio para celebrar con estilo",
+    description:
+      "Una propuesta que combina salón, jardín y naturaleza para crear eventos con gran presencia visual.",
   },
 ];
+
+export const galleryPhotoGuide = [];
