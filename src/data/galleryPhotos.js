@@ -1,6 +1,8 @@
+const BASE_URL = import.meta.env.BASE_URL;
+
 export const galleryPhotos = [
   {
-    src: "/images/gallery/aura-01.webp",
+    src: `${BASE_URL}images/gallery/aura-01.webp`,
     width: 1365,
     height: 2048,
     alt: "Vista interior del acceso en Aura Cuicuilco con domo central y jardín decorativo",
@@ -9,7 +11,7 @@ export const galleryPhotos = [
       "Una entrada con personalidad, luz natural y una atmósfera que se siente cuidada desde el primer momento.",
   },
   {
-    src: "/images/gallery/aura-02.webp",
+    src: `${BASE_URL}images/gallery/aura-02.webp`,
     width: 2048,
     height: 1365,
     alt: "Acceso exterior arbolado de Aura Cuicuilco",
@@ -18,7 +20,7 @@ export const galleryPhotos = [
       "El entorno verde y la entrada arbolada aportan una sensación de privacidad y calma desde la llegada.",
   },
   {
-    src: "/images/gallery/aura-03.webp",
+    src: `${BASE_URL}images/gallery/aura-03.weep`,
     width: 1365,
     height: 2048,
     alt: "Sendero rodeado de vegetación en Aura Cuicuilco",
@@ -27,7 +29,7 @@ export const galleryPhotos = [
       "Recorridos entre vegetación que suman encanto y hacen que el espacio se sienta más especial.",
   },
   {
-    src: "/images/gallery/aura-04.webp",
+    src: `${BASE_URL}images/gallery/aura-04.webp`,
     width: 1365,
     height: 2048,
     alt: "Camino exterior rodeado de jardín en Aura Cuicuilco",
@@ -36,7 +38,7 @@ export const galleryPhotos = [
       "Cada trayecto dentro del lugar aporta una experiencia visual agradable y bien integrada con el jardín.",
   },
   {
-    src: "/images/gallery/aura-05.webp",
+    src: `${BASE_URL}images/gallery/aura-05.webp`,
     width: 1365,
     height: 2048,
     alt: "Terraza exterior rodeada de vegetación en Aura Cuicuilco",
@@ -45,7 +47,7 @@ export const galleryPhotos = [
       "Espacios que combinan comodidad, vegetación y una imagen ideal para reuniones y celebraciones.",
   },
   {
-    src: "/images/gallery/aura-06.webp",
+    src: `${BASE_URL}images/gallery/aura-06.webp`,
     width: 2048,
     height: 1365,
     alt: "Montaje de evento en el jardín de Aura Cuicuilco",
@@ -54,7 +56,7 @@ export const galleryPhotos = [
       "El jardín y la zona de convivencia permiten celebraciones con una presentación elegante y memorable.",
   },
   {
-    src: "/images/gallery/aura-07.webp",
+    src: `${BASE_URL}images/gallery/aura-07.webp`,
     width: 2048,
     height: 1365,
     alt: "Área de jardín con camino de ladrillo en Aura Cuicuilco",
@@ -63,7 +65,7 @@ export const galleryPhotos = [
       "Una zona verde que aporta frescura, amplitud visual y un ambiente ideal para eventos especiales.",
   },
   {
-    src: "/images/gallery/aura-08.webp",
+    src: `${BASE_URL}images/gallery/aura-08.webp`,
     width: 2048,
     height: 1365,
     alt: "Vista amplia del jardín principal en Aura Cuicuilco con invitados",
