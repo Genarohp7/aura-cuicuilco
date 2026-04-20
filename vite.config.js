@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
-export default defineConfig(({ command }) => ({
-  base: command === "serve" ? "/" : "/aura-cuicuilco/",
+export default defineConfig(({ mode }) => ({
   plugins: [react(), tailwindcss()],
+  base: mode === "github" ? "/aura-cuicuilco/" : "/",
 }));
