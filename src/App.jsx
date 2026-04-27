@@ -91,7 +91,7 @@ function App() {
                       Comodidad
                     </p>
                     <p className="mt-3 text-2xl font-light tracking-[0.05em]">
-                      Valet parking
+                      Estacionamiento
                     </p>
                   </article>
 
@@ -100,7 +100,7 @@ function App() {
                       Experiencia
                     </p>
                     <p className="mt-3 text-2xl font-light tracking-[0.05em]">
-                      Montaje con estilo
+                      Montaje Personalizado
                     </p>
                   </article>
                 </div>
@@ -279,7 +279,7 @@ function App() {
                 Hasta 100 personas
               </span>
               <span className="rounded-full border border-[var(--line)] bg-[var(--surface)]/90 px-4 py-2 text-sm tracking-[0.08em]">
-                Valet parking
+                Estacionamiento
               </span>
             </div>
           </div>

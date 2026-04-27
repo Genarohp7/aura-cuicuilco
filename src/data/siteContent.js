@@ -17,7 +17,7 @@ export const siteContent = {
   highlights: [
     "Salón y jardín para eventos",
     "Capacidad máxima para 100 personas",
-    "Valet parking",
+    "Estacionamiento",
     "Paquetes de banquete para distintas experiencias",
     "Montaje cuidado y presentación elegante",
     "Espacio ideal para celebraciones íntimas y memorables",
