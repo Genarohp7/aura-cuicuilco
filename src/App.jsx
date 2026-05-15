@@ -4,6 +4,7 @@ import { siteContent } from "./data/siteContent";
 
 const whatsappUrl =
   "https://wa.me/525549453061?text=Hola%2C%20quiero%20hacer%20una%20reservacion%20en%20Aura%20Cuicuilco.";
+const logoUrl = `${import.meta.env.BASE_URL}Logo_Aura.svg`;
 
 function App() {
   const {
@@ -24,13 +25,25 @@ function App() {
       <main className="relative overflow-hidden bg-[var(--background)] text-[var(--foreground)]">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.14),transparent_38%)]" />
 
+        <header className="absolute inset-x-0 top-0 z-10">
+          <div className="mx-auto flex w-full max-w-7xl items-center px-4 py-3 md:px-6 md:py-4">
+            <a
+              href="#"
+              className="relative -left-10 -top-7 inline-flex h-24 w-28 items-center justify-start overflow-visible md:-left-12 md:-top-9 md:h-28 md:w-32"
+              aria-label={brand.name}
+            >
+              <img
+                src={logoUrl}
+                alt={brand.name}
+                className="h-24 w-24 origin-left scale-[2.15] object-contain md:h-28 md:w-28 md:scale-[2.25]"
+              />
+            </a>
+          </div>
+        </header>
+
         <section className="relative mx-auto flex min-h-screen w-full max-w-7xl items-center px-6 py-20 md:px-10">
           <div className="grid w-full items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
             <div>
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.4em] text-[var(--gold-dark)]">
-                {brand.name}
-              </p>
-
               <p className="text-sm uppercase tracking-[0.28em] text-[var(--muted)]">
                 {hero.eyebrow}
               </p>
