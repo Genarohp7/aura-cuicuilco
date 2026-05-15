@@ -2,6 +2,9 @@ import GallerySection from "./components/GallerySection";
 import SmoothScroll from "./components/SmoothScroll";
 import { siteContent } from "./data/siteContent";
 
+const whatsappUrl =
+  "https://wa.me/525549453061?text=Hola%2C%20quiero%20hacer%20una%20reservacion%20en%20Aura%20Cuicuilco.";
+
 function App() {
   const {
     brand,
@@ -48,7 +51,9 @@ function App() {
 
               <div className="mt-10 flex flex-wrap gap-4">
                 <a
-                  href="#contacto"
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noreferrer"
                   className="inline-flex items-center justify-center rounded-full border border-[var(--gold-dark)] bg-[var(--gold)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f2a20] transition duration-300 hover:-translate-y-0.5"
                 >
                   {hero.primaryCta}
@@ -268,8 +273,17 @@ function App() {
 
             <p className="mt-5 max-w-2xl text-base leading-7 text-[var(--muted)]">
               La mejor forma de entender un lugar para eventos es vivir su ambiente.
-              Aquí después conectaremos WhatsApp, ubicación y el medio de contacto final.
+              Escríbenos por WhatsApp para revisar disponibilidad y resolver tus dudas.
             </p>
+
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-8 inline-flex items-center justify-center rounded-full border border-[var(--gold-dark)] bg-[var(--gold)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f2a20] transition duration-300 hover:-translate-y-0.5"
+            >
+              Reservaciones
+            </a>
 
             <div className="mt-8 flex flex-wrap gap-3">
               <span className="rounded-full border border-[var(--line)] bg-[var(--surface)]/90 px-4 py-2 text-sm tracking-[0.08em]">

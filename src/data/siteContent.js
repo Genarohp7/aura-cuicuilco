@@ -10,7 +10,7 @@ export const siteContent = {
     title: "Un espacio elegante para celebrar momentos que merecen quedarse en la memoria.",
     description:
       "Aura Cuicuilco reúne salón, jardín y una atmósfera cuidada para crear celebraciones cálidas, bien presentadas y con una experiencia que se siente especial desde la llegada.",
-    primaryCta: "Solicitar información",
+    primaryCta: "Reservaciones",
     secondaryCta: "Ver paquetes",
   },
 
