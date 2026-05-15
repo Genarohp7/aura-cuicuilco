@@ -1,11 +1,9 @@
 import { useMemo, useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
-import Captions from "yet-another-react-lightbox/plugins/captions";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 
 import "yet-another-react-lightbox/styles.css";
-import "yet-another-react-lightbox/plugins/captions.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 
 import { galleryPhotos } from "../data/galleryPhotos";
@@ -28,8 +26,6 @@ function GallerySection() {
         width: photo.width,
         height: photo.height,
         alt: photo.alt,
-        title: photo.title,
-        description: photo.description,
       })),
     []
   );
@@ -94,25 +90,14 @@ function GallerySection() {
 
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/72 via-black/18 to-transparent" />
 
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 p-5 md:p-6">
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 md:p-6">
                   <p className="text-[10px] uppercase tracking-[0.35em] text-white/72">
                     Aura Cuicuilco
                   </p>
 
-                  <div className="mt-3 flex items-end justify-between gap-4">
-                    <div className="max-w-[80%]">
-                      <h3 className="text-lg font-light tracking-[0.05em] text-white md:text-xl">
-                        {photo.title}
-                      </h3>
-                      <p className="mt-2 hidden text-sm leading-6 text-white/82 md:block">
-                        {photo.description}
-                      </p>
-                    </div>
-
-                    <span className="inline-flex h-11 min-w-11 items-center justify-center rounded-full border border-white/22 bg-white/10 px-3 text-[10px] uppercase tracking-[0.24em] text-white/85 backdrop-blur">
-                      Ver
-                    </span>
-                  </div>
+                  <span className="inline-flex h-11 min-w-11 items-center justify-center rounded-full border border-white/22 bg-white/10 px-3 text-[10px] uppercase tracking-[0.24em] text-white/85 backdrop-blur">
+                    Ver
+                  </span>
                 </div>
 
                 {index === previewPhotos.length - 1 && extraPhotos > 0 ? (
@@ -151,12 +136,7 @@ function GallerySection() {
             index={Math.max(activeIndex, 0)}
             on={{ view: ({ index }) => setActiveIndex(index) }}
             slides={slides}
-            plugins={[Captions, Thumbnails, Zoom]}
-            captions={{
-              showToggle: true,
-              descriptionTextAlign: "start",
-              descriptionMaxLines: 2,
-            }}
+            plugins={[Thumbnails, Zoom]}
             thumbnails={{
               position: "bottom",
               width: 96,
